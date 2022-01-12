@@ -53,7 +53,7 @@ def time_to_seconds(time):
     )
 
 
-@Client.on_message(command(["play", "play@VeezMegaBot"]) & other_filters)
+@Client.on_message(command(["play", "play@Musichambot"]) & other_filters)
 async def play(_, message: Message):
     await message.delete()
     chat_id = message.chat.id
@@ -551,7 +551,7 @@ async def popat(_, CallbackQuery):
         return
 
 
-@Client.on_message(command(["playplaylist", "playplaylist@VeezMegaBot"]) & other_filters)
+@Client.on_message(command(["playplaylist", "playplaylist@Musichambot"]) & other_filters)
 async def play_playlist_cmd(_, message):
     thumb ="cache/playlist.png"
     user_id = message.from_user.id
