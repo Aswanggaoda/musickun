@@ -43,7 +43,7 @@ async def ban_globally(_, message):
                 except Exception:
                     pass    
             ban_text = f"""
-🚷 **new global ban on veez mega**
+🚷 **new global ban on hamusic**
 
 **Origin:** {message.chat.title} [`{message.chat.id}`]
 **Sudo User:** {from_user.mention}
@@ -89,7 +89,7 @@ async def ban_globally(_, message):
                 except Exception:
                     pass    
             ban_text = f"""
-🚷 **new global ban on veez mega**
+🚷 **new global ban on hamusic**
 
 **Origin:** {message.chat.title} [`{message.chat.id}`]
 **Sudo User:** {from_user_mention}
@@ -163,4 +163,4 @@ async def chat_watcher_func(_, message):
             await message.chat.kick_member(userid)
         except Exception:
             return       
-        await message.reply_text(f"{checking} is globally banned by veez mega and has been kicked out from chat.\n\n🚫 **reason:** potential spammer and abuser.")
+        await message.reply_text(f"{checking} is globally banned by hamusic and has been kicked out from chat.\n\n🚫 **reason:** potential spammer and abuser.")
