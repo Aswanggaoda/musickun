@@ -657,7 +657,7 @@ async def group_playlist(_,CallbackQuery):
             duration = (result["duration"])
             videoid = (result["id"])
     except Exception as e:
-            return await CallbackQuery.message.reply_text(f"❌ an error occured.\n\nplease forward to @VeezSupportGroup\n\n**reason:** `{e}`") 
+            return await CallbackQuery.message.reply_text(f"❌ an error occured.\n\nplease forward to @cayacapee\n\n**reason:** `{e}`") 
     _check = await get_playlist(chat_id, videoid)
     title = title[:50]
     if _check:
@@ -707,7 +707,7 @@ async def pla_playylistt(_,CallbackQuery):
             duration = (result["duration"])
             videoid = (result["id"])
     except Exception as e:
-            return await CallbackQuery.message.reply_text(f"an error occured.\n\nplease forward to @VeezSupportGroup\n**Possible Reason:**{e}") 
+            return await CallbackQuery.message.reply_text(f"an error occured.\n\nplease forward to @cayacapee\n**Possible Reason:**{e}") 
     _check = await get_playlist(userid, videoid)
     if _check:
          return await CallbackQuery.message.reply_text(f"{Name}, your request is **already added** to the **playlist !**") 
