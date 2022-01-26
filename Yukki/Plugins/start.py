@@ -37,17 +37,17 @@ pstart_markup=InlineKeyboardMarkup(
                         "add me to a Group", url="https://t.me/Musichambot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "📚 Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
+                        "Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
                     InlineKeyboardButton(
-                        "❓ Setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
+                        "setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
                 ],[
                     InlineKeyboardButton(
-                        "👥 Official Group", url="https://t.me/VeezSupportGroup"), 
+                        "Official Group", url="https://t.me/VeezSupportGroup"), 
                     InlineKeyboardButton(
-                        "📣 Official Channel", url="https://t.me/levinachannel")
-                ],[
-                    
+                        "Official Channel", url="https://t.me/levinachannel")
                 ]
+                    
+                
             ]
         )
 
