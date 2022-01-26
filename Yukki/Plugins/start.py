@@ -25,7 +25,7 @@ def start_pannel():
             ],
             [ 
                 InlineKeyboardButton(text="Channel", url="https://t.me/cayacapee"),
-                InlineKeyboardButton(text="💭 Group", url="https://t.me/VeezSupportGroup")
+                InlineKeyboardButton(text="Group", url="https://t.me/GroupCukupTau")
             ],
     ]
     return "✨  **Welcome to veez music mega bot.**", buttons
