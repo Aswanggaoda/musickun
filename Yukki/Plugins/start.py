@@ -39,15 +39,14 @@ pstart_markup=InlineKeyboardMarkup(
                     InlineKeyboardButton(
                         "📚 Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
                     InlineKeyboardButton(
-                        "♥️ Donate", url="https://t.me/VMDonationBot")
+                        "❓ Setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
                 ],[
                     InlineKeyboardButton(
                         "👥 Official Group", url="https://t.me/VeezSupportGroup"), 
                     InlineKeyboardButton(
                         "📣 Official Channel", url="https://t.me/levinachannel")
                 ],[
-                    InlineKeyboardButton(
-                        "❓ Setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
+                    
                 ]
             ]
         )
