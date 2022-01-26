@@ -24,7 +24,7 @@ def start_pannel():
                 InlineKeyboardButton(text="Commands", url="https://telegra.ph/Hamusic-Bot-Guide-01-08")
             ],
             [ 
-                InlineKeyboardButton(text="📣 Channel", url="https://t.me/levinachannel"),
+                InlineKeyboardButton(text="Channel", url="https://t.me/cayacapee"),
                 InlineKeyboardButton(text="💭 Group", url="https://t.me/VeezSupportGroup")
             ],
     ]
