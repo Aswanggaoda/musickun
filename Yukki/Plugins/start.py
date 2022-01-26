@@ -21,7 +21,7 @@ from Yukki.YukkiUtilities.database.sudo import (get_sudoers, get_sudoers, remove
 def start_pannel():  
     buttons  = [
             [
-                InlineKeyboardButton(text="📚 Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10")
+                InlineKeyboardButton(text="Commands", url="https://telegra.ph/Hamusic-Bot-Guide-01-08")
             ],
             [ 
                 InlineKeyboardButton(text="📣 Channel", url="https://t.me/levinachannel"),
