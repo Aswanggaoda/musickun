@@ -55,7 +55,7 @@ async def userdel(_, message: Message):
         user = (await app.get_users(user))
         from_user = message.from_user      
         if user.id not in await get_sudoers():
-            return await message.reply_text(f"❌ user is not a part of veez mega")        
+            return await message.reply_text(f"❌ user is not a part of hamusic")        
         removed = await remove_sudo(user.id)
         if removed:
             await message.reply_text(f"✅ removed **{user.mention}** from sudo user list")
