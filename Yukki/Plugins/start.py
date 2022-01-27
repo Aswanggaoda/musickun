@@ -21,7 +21,7 @@ from Yukki.YukkiUtilities.database.sudo import (get_sudoers, get_sudoers, remove
 def start_pannel():  
     buttons  = [
             [
-                InlineKeyboardButton(text="Commands", url="https://telegra.ph/Hamusic-Bot-Guide-01-08")
+                InlineKeyboardButton(text="Commands", url="https://telegra.ph/HAMUSIC-BOT-01-08")
             ],
             [ 
                 InlineKeyboardButton(text="Channel", url="https://t.me/cayacapee"),
@@ -37,7 +37,7 @@ pstart_markup=InlineKeyboardMarkup(
                         "add me to a Group", url="https://t.me/Musichambot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "Commands", url="https://telegra.ph/Hamusic-Bot-Guide-01-08"),
+                        "Commands", url="https://telegra.ph/HAMUSIC-BOT-01-08"),
                     InlineKeyboardButton(
                         "setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
                 ],[
