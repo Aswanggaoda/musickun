@@ -31,12 +31,12 @@ async def restart_server(_, message):
         try:
             await app.send_message(
                 x,
-                f"veez mega server has just restarted.\n\nsorry for the issues, start playing after 15-20 seconds again.",
+                f"hamusic server has just restarted.\n\nsorry for the issues, start playing after 15-20 seconds again.",
             )
             await remove_active_chat(x)
         except Exception:
             pass
-    x = await message.reply_text(f"restarting veez mega bot.")
+    x = await message.reply_text(f"restarting hamusic.")
     os.system(f"kill -9 {os.getpid()} && python3 -m Yukki")
 
 
