@@ -21,33 +21,34 @@ from Yukki.YukkiUtilities.database.sudo import (get_sudoers, get_sudoers, remove
 def start_pannel():  
     buttons  = [
             [
-                InlineKeyboardButton(text="Commands", url="https://telegra.ph/HAMUSIC-BOT-01-08")
+                InlineKeyboardButton(text="📚 Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10")
             ],
             [ 
-                InlineKeyboardButton(text="Channel", url="https://t.me/cayacapee"),
-                InlineKeyboardButton(text="Group", url="https://t.me/GroupCukupTau")
+                InlineKeyboardButton(text="📣 Channel", url="https://t.me/levinachannel"),
+                InlineKeyboardButton(text="💭 Group", url="https://t.me/VeezSupportGroup")
             ],
     ]
-    return "✨  **Welcome to hamusic**", buttons
+    return "✨  **Welcome to veez music mega bot.**", buttons
 
 pstart_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "add me to a Group", url="https://t.me/Musichambot?startgroup=true")
+                        "➕ Add me to a Group ➕", url="https://t.me/VeezMegaBot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "Commands", url="https://telegra.ph/HAMUSIC-BOT-01-08"),
+                        "📚 Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
                     InlineKeyboardButton(
-                        "setup Guide", url="https://telegra.ph/Hamusic-Bot-Guide-01-08")
+                        "♥️ Donate", url="https://t.me/VMDonationBot")
                 ],[
                     InlineKeyboardButton(
-                        "Official Group", url="https://t.me/GroupCukupTau"), 
+                        "👥 Official Group", url="https://t.me/VeezSupportGroup"), 
                     InlineKeyboardButton(
-                        "Official Channel", url="https://t.me/cayacapee")
+                        "📣 Official Channel", url="https://t.me/levinachannel")
+                ],[
+                    InlineKeyboardButton(
+                        "❓ Setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
                 ]
-                    
-                
             ]
         )
 
@@ -55,15 +56,15 @@ welcome_captcha_group = 2
 @app.on_message(filters.new_chat_members, group=welcome_captcha_group)
 async def welcome(_, message: Message):
     chat_id = message.chat.id
-        await message.reply_text(f"❌ **not in allowed chat**\n\nhamusic is only for allowed chats, ask any sudo user to allow your chat.\n\ncheck sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
     if not await is_served_chat(chat_id):
+        await message.reply_text(f"❌ **not in allowed chat**\n\nveez mega is only for allowed chats, ask any sudo user to allow your chat.\n\ncheck sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
         return await app.leave_chat(chat_id)
     for member in message.new_chat_members:
         try:
             if member.id in OWNER:
-                return await message.reply_text(f"🧙🏻‍♂️ • {member.mention} •\n\n• **Staff** of hamusic has joined this Group.")
+                return await message.reply_text(f"🧙🏻‍♂️ • {member.mention} •\n\n• **Staff** of Veez Mega has joined this Group.")
             if member.id in SUDOERS:
-                return await message.reply_text(f"🧙🏻‍♂️ • {member.mention} •\n\n• **Staff** of hamusic has joined this Group.")
+                return await message.reply_text(f"🧙🏻‍♂️ • {member.mention} •\n\n• **Staff** of Veez Mega has joined this Group.")
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
             if member.id == BOT_ID:
@@ -77,12 +78,22 @@ async def welcome(_, message: Message):
 async def start(_, message: Message):
     chat_id = message.chat.id
     if not await is_served_chat(chat_id):
-        await message.reply_text(f"❌ **not in allowed chat**\n\nhamusic is only for allowed chats, ask any sudo user to allow your chat.\n\ncheck sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
+        await message.reply_text(f"❌ **not in allowed chat**\n\nveez mega is only for allowed chats, ask any sudo user to allow your chat.\n\ncheck sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
         return await app.leave_chat(chat_id)
     out = start_pannel()
-    await message.reply_text(f"✨ Hello {message.from_user.mention}, i'm a hamusic bot.\n\n💭 Appoint me as admin in your Group so i can play music, otherwise you can't use my service.", reply_markup=InlineKeyboardMarkup(out[1]))
+    await message.reply_text(f"✨ Hello {message.from_user.mention}, i'm a Veez Mega bot.\n\n💭 Appoint me as admin in your Group so i can play music, otherwise you can't use my service.", reply_markup=InlineKeyboardMarkup(out[1]))
     return
-        
+
+
+# Convert seconds to mm:ss
+def convert_seconds(seconds):
+    seconds = seconds % (24 * 3600)
+    seconds %= 3600
+    minutes = seconds // 60
+    seconds %= 60
+    return "%02d:%02d" % (minutes, seconds)
+
+
 @Client.on_message(filters.private & filters.incoming & filters.command("start"))
 async def play(_, message: Message):
     if len(message.command) == 1:
@@ -90,7 +101,7 @@ async def play(_, message: Message):
         user_name = message.from_user.first_name
         rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
         await app.send_message(message.chat.id,
-            text=f"✨ Welcome {rpk} !\n\n💭 [hamusic](https://t.me/Musichambot) **allows** you to **play music** on **Groups** through the new **Telegram's video chats** feature !\n\n💡 **Find out** all the **Bot's commands** and how they work by clicking on the » 📚 **Commands** button!",
+            text=f"✨ Welcome {rpk} !\n\n💭 [Veez Mega](https://t.me/VeezMegaBot) **allows** you to **play music** on **Groups** through the new **Telegram's video chats** feature !\n\n💡 **Find out** all the **Bot's commands** and how they work by clicking on the » 📚 **Commands** button!",
             parse_mode="markdown",
             reply_markup=pstart_markup,
             reply_to_message_id=message.message_id,
@@ -114,14 +125,14 @@ async def play(_, message: Message):
 💡 **Track Informations**
 
 🏷 **Name:** {x["title"]}
-⏱ **Duration:** {round(x["duration"] / 60)} min(s)
+⏱ **Duration:** {convert_seconds(x["duration"] / 60)} min(s)
 👀 **Views:** `{x["view_count"]}`
 👍🏻 **Likes:** `{x["like_count"]}`
 ⭐️ **Ratings:** {x["average_rating"]}
 📣 **Channel:** {x["uploader"]}
 🔗 **Link:** {x["webpage_url"]}
 
- __Powered by hamusic__"""
+⚡️ __Powered by Veez Mega AI__"""
             link = (x["webpage_url"])
             buttons = personal_markup(link)
             userid = message.from_user.id
