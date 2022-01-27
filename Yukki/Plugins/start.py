@@ -39,12 +39,12 @@ pstart_markup=InlineKeyboardMarkup(
                     InlineKeyboardButton(
                         "Commands", url="https://telegra.ph/HAMUSIC-BOT-01-08"),
                     InlineKeyboardButton(
-                        "setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
+                        "setup Guide", url="https://telegra.ph/Hamusic-Bot-Guide-01-08")
                 ],[
                     InlineKeyboardButton(
-                        "Official Group", url="https://t.me/VeezSupportGroup"), 
+                        "Official Group", url="https://t.me/GroupCukupTau"), 
                     InlineKeyboardButton(
-                        "Official Channel", url="https://t.me/levinachannel")
+                        "Official Channel", url="https://t.me/cayacapee")
                 ]
                     
                 
