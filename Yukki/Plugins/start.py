@@ -37,7 +37,7 @@ pstart_markup=InlineKeyboardMarkup(
                         "add me to a Group", url="https://t.me/Musichambot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
+                        "Commands", url="https://telegra.ph/Hamusic-Bot-Guide-01-08"),
                     InlineKeyboardButton(
                         "setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
                 ],[
