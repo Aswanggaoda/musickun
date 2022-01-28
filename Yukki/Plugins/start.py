@@ -28,23 +28,23 @@ def start_pannel():
                 InlineKeyboardButton(text="Group", url="https://t.me/GroupCukupTau")
             ],
     ]
-    return "✨  **Welcome to hamusic**", buttons
+    return "**Welcome to hamusic**", buttons
 
 pstart_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to a Group ➕", url="https://t.me/VeezMegaBot?startgroup=true")
+                        "Add me to a Group ➕", url="https://t.me/VeezMegaBot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "📚 Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
+                        "Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
                     InlineKeyboardButton(
-                        "♥️ Donate", url="https://t.me/VMDonationBot")
+                         "Donate", url="https://t.me/VMDonationBot")
                 ],[
                     InlineKeyboardButton(
-                        "👥 Official Group", url="https://t.me/VeezSupportGroup"), 
+                        "Official Group", url="https://t.me/VeezSupportGroup"), 
                     InlineKeyboardButton(
-                        "📣 Official Channel", url="https://t.me/levinachannel")
+                        "Official Channel", url="https://t.me/levinachannel")
                 ],[
                     InlineKeyboardButton(
                         "❓ Setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
