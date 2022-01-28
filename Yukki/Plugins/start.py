@@ -34,10 +34,10 @@ pstart_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Add me to a Group ➕", url="https://t.me/VeezMegaBot?startgroup=true")
+                        "Add me to a Group", url="https://t.me/Musichambot?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "Commands", url="https://telegra.ph/Veez-Mega-Guide-01-10"),
+                        "Commands", url="https://telegra.ph/HAMUSIC-BOT-01-08"),
                     InlineKeyboardButton(
                          "Donate", url="https://t.me/VMDonationBot")
                 ],[
