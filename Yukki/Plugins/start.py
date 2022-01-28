@@ -42,9 +42,9 @@ pstart_markup=InlineKeyboardMarkup(
                         "Setup Guide", url="https://telegra.ph/Veez-Mega-Guid-11-19")
                 ],[
                     InlineKeyboardButton(
-                        "Official Group", url="https://t.me/VeezSupportGroup"), 
+                        "Official Group", url="https://t.me/GroupCukupTau"), 
                     InlineKeyboardButton(
-                        "Official Channel", url="https://t.me/levinachannel")
+                        "Official Channel", url="https://t.me/cayacapee")
                 ]
                     
                 
