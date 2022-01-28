@@ -21,11 +21,11 @@ from Yukki.YukkiUtilities.database.sudo import (get_sudoers, get_sudoers, remove
 def start_pannel():  
     buttons  = [
             [
-                InlineKeyboardButton(text="📚 Commands", url="https://telegra.ph/HAMUSIC-BOT-01-08")
+                InlineKeyboardButton(text="Commands", url="https://telegra.ph/HAMUSIC-BOT-01-08")
             ],
             [ 
-                InlineKeyboardButton(text="📣 Channel", url="https://t.me/levinachannel"),
-                InlineKeyboardButton(text="💭 Group", url="https://t.me/VeezSupportGroup")
+                InlineKeyboardButton(text="Channel", url="https://t.me/cayacapee"),
+                InlineKeyboardButton(text="Group", url="https://t.me/VeezSupportGroup")
             ],
     ]
     return "✨  **Welcome to veez music mega bot.**", buttons
