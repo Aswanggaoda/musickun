@@ -58,7 +58,7 @@ async def play(_, message: Message):
     await message.delete()
     chat_id = message.chat.id
     if not await is_served_chat(chat_id):
-        await message.reply_text(f"❌ **not in allowed chat**\n\nhamusic is only for allowed chats. ask any sudo user to allow your chat.\n\ncheck sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
+        await message.reply_text(f"**not in allowed chat**\n\nhamusic is only for allowed chats. ask any sudo user to allow your chat.\n\ncheck sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
         return await app.leave_chat(chat_id)  
     if message.sender_chat:
         return await message.reply_text("you're an __Anonymous__ Admin !\n\n» revert back to user account from admin rights.")  
@@ -67,28 +67,28 @@ async def play(_, message: Message):
     username = message.from_user.first_name
     checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
     if await is_on_off(1):
-        LOG_ID = "-1001306851903"
+        LOG_ID = "-1001711065013"
         if int(chat_id) != int(LOG_ID):
             return await message.reply_text("» bot is under maintenance, sorry for the inconvenience!")
         return await message.reply_text("» bot is under maintenance, sorry for the inconvenience!")
     a = await app.get_chat_member(message.chat.id , BOT_ID)
     if a.status != "administrator":
-        await message.reply_text(f"💡 To use me, I need to be an Administrator with the following permissions:\n\n» ❌ __Delete messages__\n» ❌ __Add users__\n» ❌ __Manage video chat__\n\nData is **updated** automatically after you **promote me**")
+        await message.reply_text(f"To use me, I need to be an Administrator with the following permissions:\n\n» __Delete messages__\n» __Add users__\n» __Manage video chat__\n\nData is **updated** automatically after you **promote me**")
         return
     if not a.can_manage_voice_chats:
         await message.reply_text(
         "missing required permission:"
-        + "\n\n» ❌ __Manage video chat__")
+        + "\n\n» __Manage video chat__")
         return
     if not a.can_delete_messages:
         await message.reply_text(
         "missing required permission:"
-        + "\n\n» ❌ __Delete messages__")
+        + "\n\n» __Delete messages__")
         return
     if not a.can_invite_users:
         await message.reply_text(
         "missing required permission:"
-        + "\n\n» ❌ __Add users__")
+        + "\n\n» __Add users__")
         return
     try:
         b = await app.get_chat_member(message.chat.id , ASSID) 
@@ -101,7 +101,7 @@ async def play(_, message: Message):
                 await ASS_ACC.join_chat(f"{message.chat.username}")
                 await remove_active_chat(chat_id)
             except Exception as e:
-                await message.reply_text(f"❌ **userbot failed to join**\n\n**reason**: `{e}`")
+                await message.reply_text(f"**userbot failed to join**\n\n**reason**: `{e}`")
                 return
         else:
             try:
@@ -117,20 +117,20 @@ async def play(_, message: Message):
             except UserAlreadyParticipant:
                 pass
             except Exception as e:
-                return await message.reply_text(f"❌ **userbot failed to join**\n\n**reason**: `{e}`")       
+                return await message.reply_text(f"**userbot failed to join**\n\n**reason**: `{e}`")       
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
     url = get_url(message)
     fucksemx = 0
     if audio:
         fucksemx = 1
         what = "Audio Searched"
-        mystic = await message.reply_text("**🔄 processing audio...**")
+        mystic = await message.reply_text("**processing audio...**")
         if audio.file_size > 157286400:
             await mystic.edit_text("audio file size must be less than 150 mb.") 
             return
         duration = round(audio.duration / 60)
         if duration > DURATION_LIMIT:
-            return await mystic.edit_text(f"❌ **__Duration Error__**\n\n**Allowed Duration: **{DURATION_LIMIT} minute(s)\n**Received Duration:** {duration} minute(s)")
+            return await mystic.edit_text(f"**__Duration Error__**\n\n**Allowed Duration: **{DURATION_LIMIT} minute(s)\n**Received Duration:** {duration} minute(s)")
         file_name = audio.file_unique_id + '.' + (
             (
                 audio.file_name.split('.')[-1]
@@ -155,7 +155,7 @@ async def play(_, message: Message):
     elif url:
         what = "URL Searched"
         query = " ".join(message.command[1:])
-        mystic = await _.send_message(chat_id, "🔍 **Searching...**")
+        mystic = await _.send_message(chat_id, "**Searching...**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = VideosSearch(query, limit=1)
@@ -171,12 +171,12 @@ async def play(_, message: Message):
             return await mystic.edit_text(f"song not found.\n\n**reason:** {e}")    
         smex = int(time_to_seconds(duration))
         if smex > DURATION_LIMIT:
-            return await mystic.edit_text(f"❌ **__Duration Error__**\n\n**Allowed Duration: **90 minute(s)\n**Received Duration:** {duration} minute(s)")
+            return await mystic.edit_text(f"**__Duration Error__**\n\n**Allowed Duration: **90 minute(s)\n**Received Duration:** {duration} minute(s)")
         if duration == "None":
-            return await mystic.edit_text("❌ live stream not supported")
+            return await mystic.edit_text("live stream not supported")
         if views == "None":
-            return await mystic.edit_text("❌ live stream not supported")
-        semxbabes = (f"📥 downloading: {title[:55]}")
+            return await mystic.edit_text("live stream not supported")
+        semxbabes = (f"downloading: {title[:55]}")
         await mystic.edit(semxbabes)
         theme = random.choice(themes)
         ctitle = message.chat.title
@@ -236,11 +236,7 @@ async def play(_, message: Message):
         if len(message.command) < 2:
             what = "Command"
             user_name = message.from_user.first_name
-            thumb ="cache/playlist.png"
-            buttons = playlist_markup(user_name, user_id)
-            hmo = await message.reply_photo(
-            photo=thumb, 
-            caption=("**usage:** /play (music name/youtube url/audio file)\n\nIf you want to play from playlist, select one from below."),    
+            await message.reply_text("**usage:** /play (music name/youtube url/audio file)\n\nIf you want to play from playlist, select one from below."),    
             reply_markup=InlineKeyboardMarkup(buttons),
             ) 
             return
@@ -271,7 +267,7 @@ async def play(_, message: Message):
         url = "https://www.youtube.com/watch?v={id}"
         buttons = search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, duration4, duration5, user_id, query)
         await mystic.edit(
-            f"1️⃣ <b>[{title1[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n └ ⚡ __Powered by hamusic__\n\n2️⃣ <b>[{title2[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n └ ⚡ __Powered by hamusic__\n\n3️⃣ <b>[{title3[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n └ ⚡ __Powered by hamusic__\n\n4️⃣ <b>[{title4[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n └ ⚡ __Powered by hamusic__\n\n5️⃣ <b>[{title5[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID5})\n └ ⚡ __Powered by hamusic__",    
+            f"1️⃣ <b>[{title1[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n\n2️⃣ <b>[{title2[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n\n3️⃣ <b>[{title3[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n\n4️⃣ <b>[{title4[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n\n5️⃣ <b>[{title5[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID5})",    
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )
@@ -535,7 +531,7 @@ async def popat(_, CallbackQuery):
         url = "https://www.youtube.com/watch?v={id}"
         buttons = search_markup2(ID6, ID7, ID8, ID9, ID10, duration6, duration7, duration8, duration9, duration10 ,user_id, query)
         await CallbackQuery.edit_message_text(
-            f"6️⃣ <b>[{title6[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID6})\n └ ⚡ __Powered by hamusic__\n\n7️⃣ <b>[{title7[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID7})\n └ ⚡ __Powered by hamusic__\n\n8️⃣ <b>[{title8[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID8})\n └ ⚡ __Powered by hamusic__\n\n9️⃣ <b>[{title9[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID9})\n └ ⚡ __Powered by hamusic__\n\n🔟 <b>[{title10[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID10})\n └ ⚡ __Powered by hamusic__",    
+            f"6️⃣ <b>[{title6[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID6})\n\n7️⃣ <b>[{title7[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID7})\n\n8️⃣ <b>[{title8[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID8})\n\n9️⃣ <b>[{title9[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID9})\n\n🔟 <b>[{title10[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID10})",    
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )
@@ -544,7 +540,7 @@ async def popat(_, CallbackQuery):
         url = "https://www.youtube.com/watch?v={id}"
         buttons = search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, duration4, duration5, user_id, query)
         await CallbackQuery.edit_message_text(
-            f"1️⃣ <b>[{title1[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n └ ⚡ __Powered by hamusic__\n\n2️⃣ <b>[{title2[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n └ ⚡ __Powered by hamusic__\n\n3️⃣ <b>[{title3[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n └ ⚡ __Powered by hamusic__\n\n4️⃣ <b>[{title4[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n └ ⚡ __Powered by hamusic__\n\n5️⃣ <b>[{title5[:25]}...]({url})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID5})\n └ ⚡ __Powered by hamusic__",    
+            f"1️⃣ <b>[{title1[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n\n2️⃣ <b>[{title2[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n\n3️⃣ <b>[{title3[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n\n4️⃣ <b>[{title4[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n\n5️⃣ <b>[{title5[:25]}...]({url})</b>\n └  💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID5})",    
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )
