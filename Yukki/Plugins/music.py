@@ -549,13 +549,10 @@ async def popat(_, CallbackQuery):
 
 @Client.on_message(command(["playplaylist", "playplaylist@Musichambot"]) & other_filters)
 async def play_playlist_cmd(_, message):
-    thumb ="cache/playlist.png"
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     buttons = playlist_markup(user_name, user_id)
-    await message.reply_photo(
-    photo=thumb, 
-    caption=("**❓ Which playlist do you want to play ?**"),    
+    await message.reply_text("**Which playlist do you want to play ?**"),    
     reply_markup=InlineKeyboardMarkup(buttons),
     )
     return
