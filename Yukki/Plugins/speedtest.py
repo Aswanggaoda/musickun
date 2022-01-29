@@ -15,22 +15,22 @@ async def gstats(_, message):
             pass
         else:
             return
-    m = await message.reply_text("⚡️ __running server speedtest...__")
+    m = await message.reply_text("__running server speedtest...__")
     try:
         test = speedtest.Speedtest()
         test.get_best_server()
-        m = await m.edit("⚡️ __running download speedtest...__")
+        m = await m.edit("__running download speedtest...__")
         test.download()
-        m = await m.edit("⚡️ __running upload speedtest...__")
+        m = await m.edit("__running upload speedtest...__")
         test.upload()
         test.results.share()
         result = test.results.dict()
     except Exception as e:
         await message.err(text=e)
         return 
-    m = await m.edit("🔄 sharing speedtest results...")
+    m = await m.edit("sharing speedtest results...")
     path = wget.download(result["share"])
-    output = f"""💡 **SpeedTest Results**
+    output = f"""**SpeedTest Results**
     
 <u>**Client:**</u>
 
@@ -44,7 +44,7 @@ async def gstats(_, message):
 **Sponsor:** {result['server']['sponsor']}
 **Latency:** {result['server']['latency']}  
 
-⚡ **Ping:** {result['ping']}"""
+**Ping:** {result['ping']}"""
     msg = await app.send_photo(
         chat_id=message.chat.id, photo=path, caption=output
     )
