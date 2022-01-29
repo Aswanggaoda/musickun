@@ -75,10 +75,10 @@ async def activevc(_, message: Message):
             text += f"<b>{j + 1}. {title}</b> [`{x}`]\n"
         j += 1
     if not text:
-        await message.reply_text("❌ no active voice chats")
+        await message.reply_text("no active voice chats")
     else:
         await message.reply_text(
-            f"💡 **Active voice chats:**\n\n{text}",
+            f"**Active voice chats:**\n\n{text}",
             disable_web_page_preview=True,
         )
 
@@ -94,7 +94,7 @@ async def bot_leave_group(_, message):
     try:
         await app.leave_chat(chat)
     except Exception as e:
-        await message.reply_text(f"❌ procces failed\n\nreason: `{e}`")
+        await message.reply_text(f"procces failed\n\nreason: `{e}`")
         print(e)
         return
-    await message.reply_text("✅ bot successfully left chat")
+    await message.reply_text("bot successfully left chat")
