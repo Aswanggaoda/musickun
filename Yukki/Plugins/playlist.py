@@ -56,7 +56,7 @@ async def delmyplaylist(_, message):
     if name not in options:
         return await message.reply_text(usage)
     if len(message.text) == 18:
-        return await message.reply_text(f"💡 **confirmation** !\n\nare you sure want to delete your whole playlist ?", reply_markup=confirm_keyboard)
+        return await message.reply_text(f"**confirmation** !\n\nare you sure want to delete your whole playlist ?", reply_markup=confirm_keyboard)
     else:
          _playlist = await get_note_names(message.from_user.id)
     if not _playlist:
@@ -91,7 +91,7 @@ async def delchatplaylist(_, message):
     if name not in options:
         return await message.reply_text(usage)
     if len(message.text) == 21:
-        return await message.reply_text(f"💡 confirmation !\n\nare you sure want to delete whole whole playlist ?", reply_markup=confirm_group_keyboard)
+        return await message.reply_text(f"confirmation !\n\nare you sure want to delete whole whole playlist ?", reply_markup=confirm_group_keyboard)
     else:
          _playlist = await get_note_names(message.chat.id)
     if not _playlist:
