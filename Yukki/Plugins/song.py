@@ -54,7 +54,7 @@ async def musicdl(_, message: Message):
     await message.delete()
     chat_id = message.chat.id
     if not await is_served_chat(chat_id):
-        await message.reply_text(f"❌ **not in allowed chat**\n\nhamusic is only for allowed chats. ask any sudo user to allow your chat.\ncheck sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
+        await message.reply_text(f"**not in allowed chat**\n\nhamusic is only for allowed chats. ask any sudo user to allow your chat.\ncheck sudo user list [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
         return await app.leave_chat(chat_id)  
     if message.sender_chat:
         return await message.reply_text("you're an __Anonymous__ Admin !\n\n» revert back to user account from admin rights.")  
@@ -86,9 +86,9 @@ async def musicdl(_, message: Message):
         if smex > DURATION_LIMIT:
             return await mystic.edit_text(f"**__Duration Error__**\n\n**Allowed Duration: **90 minute(s)\n**Received Duration:** {duration} minute(s)")
         if duration == "None":
-            return await mystic.edit_text("❌ **live stream not supported**")
+            return await mystic.edit_text("**live stream not supported**")
         if views == "None":
-            return await mystic.edit_text("❌ **live stream not supported**")
+            return await mystic.edit_text("**live stream not supported**")
         thumb = await down_thumb(thumbnail, user_id)
         buttons = gets(videoid, user_id)
         m = await message.reply_photo(
@@ -125,7 +125,7 @@ async def musicdl(_, message: Message):
         link = "https://www.youtube.com/watch?v={id}"
         buttons = search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, duration4, duration5, user_id, query)
         await mystic.edit(
-            f"1️⃣ <b>[{title1[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n └ ⚡ __Powered by hamusic__\n\n2️⃣ <b>[{title2[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n └ ⚡ __Powered by hamusic__\n\n3️⃣ <b>[{title3[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n └ ⚡ __Powered by hamusic__\n\n4️⃣ <b>[{title4[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n └ ⚡ __Powered by hamusic__\n\n5️⃣ <b>[{title5[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID5})\n └ ⚡ __Powered by hamusic__",
+            f"1️⃣ <b>[{title1[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n\n2️⃣ <b>[{title2[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n\n3️⃣ <b>[{title3[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n\n4️⃣ <b>[{title4[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n\n5️⃣ <b>[{title5[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID5})",
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )
@@ -229,7 +229,7 @@ async def chonga(_,CallbackQuery):
         link = "https://www.youtube.com/watch?v={id}"
         buttons = search_markup2(ID6, ID7, ID8, ID9, ID10, duration6, duration7, duration8, duration9, duration10 ,user_id, query)
         await CallbackQuery.edit_message_text(
-            f"6️⃣ <b>[{title6[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID6})\n └ ⚡ __Powered by hamusic__\n\n7️⃣ <b>[{title7[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID7})\n └ ⚡ __Powered by hamusic__\n\n8️⃣ <b>[{title8[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID8})\n └ ⚡ __Powered by hamusic__\n\n9️⃣ <b>[{title9[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID9})\n └ ⚡ __Powered by hamusic__\n\n🔟 <b>[{title10[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID10})\n └ ⚡ __Powered by hamusic__",    
+            f"6️⃣ <b>[{title6[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID6})\n\n7️⃣ <b>[{title7[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID7})\n\n8️⃣ <b>[{title8[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID8})\n\n9️⃣ <b>[{title9[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID9})\n\n🔟 <b>[{title10[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID10})",    
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )
@@ -238,7 +238,7 @@ async def chonga(_,CallbackQuery):
         link = "https://www.youtube.com/watch?v={id}"
         buttons = search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, duration4, duration5, user_id, query)
         await CallbackQuery.edit_message_text(
-            f"1️⃣ <b>[{title1[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n └ ⚡ __Powered by hamusic__\n\n2️⃣ <b>[{title2[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n └ ⚡ __Powered by hamusic__\n\n3️⃣ <b>[{title3[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n └ ⚡ __Powered by hamusic__\n\n4️⃣ <b>[{title4[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n └ ⚡ __Powered by hamusic__\n\n5️⃣ <b>[{title5[:25]}...]({link})</b>\n ├ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID5})\n └ ⚡ __Powered by hamusic__",    
+            f"1️⃣ <b>[{title1[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n\n2️⃣ <b>[{title2[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n\n3️⃣ <b>[{title3[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n\n4️⃣ <b>[{title4[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n\n5️⃣ <b>[{title5[:25]}...]({link})</b>\n └ 💡 [More information](https://t.me/{BOT_USERNAME}?start=info_{ID5})",    
             reply_markup=InlineKeyboardMarkup(buttons),
             disable_web_page_preview=True
         )
