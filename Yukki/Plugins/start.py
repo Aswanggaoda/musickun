@@ -152,6 +152,6 @@ async def play(_, message: Message):
                     continue                     
                 text += f"➤ {user}\n"
             if not text:
-                await message.reply_text("❌ no sudo users found")  
+                await message.reply_text("no sudo users found")  
             else:
                 await message.reply_text(text)
