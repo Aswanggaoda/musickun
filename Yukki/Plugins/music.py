@@ -553,5 +553,4 @@ async def play_playlist_cmd(_, message):
     buttons = playlist_markup(user_name, user_id)
     await message.reply_text("**Which playlist do you want to play ?**"),    
     reply_markup=InlineKeyboardMarkup(buttons),
-    )
     return
