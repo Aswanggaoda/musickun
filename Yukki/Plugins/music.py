@@ -237,8 +237,7 @@ async def play(_, message: Message):
             what = "Command"
             user_name = message.from_user.first_name
             await message.reply_text("**usage:** /play (music name/youtube url/audio file)\n\nIf you want to play from playlist, select one from below."),    
-            reply_markup=InlineKeyboardMarkup(buttons),
-            ) 
+            reply_markup=InlineKeyboardMarkup(buttons), 
             return
         what = "Query Given"
         query = " ".join(message.command[1:])
