@@ -149,7 +149,7 @@ async def play(_, message: Message):
             else file_name,
         )
         title = "Telegram Audio"
-        link = "https://t.me/levinachannel"
+        link = "https://t.me/cayacapee"
         thumb = "cache/audio.png"
         videoid = "smex1"
     elif url:
@@ -296,11 +296,9 @@ async def play(_, message: Message):
             f28.close()
             buttons = audio_markup(videoid, user_id)
         checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
-        await message.reply_photo(
-            photo=thumb,
-            caption=(f"💡 **Track added to queue »** {position}\n\n🏷 <b>Name:</b> [{title[:35]}...]({link}) \n⏱ <b>Duration:</b> `{duration}` \n🎧 <b>Request by:</b> {checking}"),
             reply_markup=InlineKeyboardMarkup(buttons)
-        )
+            await message.reply_text(f"💡 **Track added to queue »** {position}\n\n🏷 <b>Name:</b> [{title[:35]}...]({link}) \n⏱ <b>Duration:</b> `{duration}` \n🎧 <b>Request by:</b> {checking}"),
+        
         return await mystic.delete()     
     else:
         try:
@@ -329,11 +327,9 @@ async def play(_, message: Message):
             f28.write(f"{videoid}") 
             f28.close()
             buttons = audio_markup(videoid, user_id)
-        await message.reply_photo(
-        photo=thumb,
         reply_markup=InlineKeyboardMarkup(buttons),    
-        caption=(f"🏷 <b>Name:</b> [{title[:75]}]({link})\n⏱ <b>Duration:</b> `{duration}`\n💡 **Status:** `Playing`\n🎧 <b>Request by:</b> {checking}")
-    )   
+        await message.reply_text(f"🏷 <b>Name:</b> [{title[:75]}]({link})\n⏱ <b>Duration:</b> `{duration}`\n💡 **Status:** `Playing`\n🎧 <b>Request by:</b> {checking}")
+       
         return await mystic.delete()
          
     
@@ -444,11 +440,9 @@ async def startyuplay(_,CallbackQuery):
         f28.write(f"{videoid}") 
         f28.close()
         await mystic.delete()
-        m = await CallbackQuery.message.reply_photo(
-        photo=thumb,
-        caption=(f"💡 **Track added to queue »** `{position}`\n\n🏷 <b>Name:</b> [{title[:35]}...]({url})\n⏱ <b>Duration:</b> `{duration}`\n🎧 <b>Request by:</b> {checking}"),
         reply_markup=InlineKeyboardMarkup(buttons)
-    )
+        await message.reply_text(f"💡 **Track added to queue »** `{position}`\n\n🏷 <b>Name:</b> [{title[:35]}...]({url})\n⏱ <b>Duration:</b> `{duration}`\n🎧 <b>Request by:</b> {checking}"),
+        
         os.remove(thumb)
         await CallbackQuery.message.delete()       
     else:
@@ -468,11 +462,9 @@ async def startyuplay(_,CallbackQuery):
         await add_active_chat(chat_id)
         buttons = play_markup(videoid, user_id)
         await mystic.delete()
-        m = await CallbackQuery.message.reply_photo(
-        photo=thumb,
-        reply_markup=InlineKeyboardMarkup(buttons),    
-        caption=(f"🏷 <b>Name:</b> [{title[:75]}]({url}) \n⏱ <b>Duration:</b> `{duration}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {checking}")
-    )   
+        reply_markup=InlineKeyboardMarkup(buttons)    
+        await message.reply_text(f"🏷 <b>Name:</b> [{title[:75]}]({url}) \n⏱ <b>Duration:</b> `{duration}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {checking}")
+       
         os.remove(thumb)
         await CallbackQuery.message.delete()
 
