@@ -295,9 +295,9 @@ async def play(_, message: Message):
             f28.write(f"{videoid}") 
             f28.close()
             buttons = audio_markup(videoid, user_id)
-        checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
-            reply_markup=InlineKeyboardMarkup(buttons),
+        checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"           
             await message.reply_text(f"💡 **Track added to queue »** {position}\n\n🏷 <b>Name:</b> [{title[:35]}...]({link}) \n⏱ <b>Duration:</b> `{duration}` \n🎧 <b>Request by:</b> {checking}"),
+            reply_markup=InlineKeyboardMarkup(buttons)
         
         return await mystic.delete()     
     else:
