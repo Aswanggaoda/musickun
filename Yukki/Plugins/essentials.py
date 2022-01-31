@@ -36,7 +36,7 @@ from ..YukkiUtilities.helpers.decorators import errors
 from Yukki.YukkiUtilities.database.functions import start_restart_stage
 
 
-@Client.on_message(command('gakbisa') & filters.user(OWNER))
+@Client.on_message(command('update') & filters.user(OWNER))
 @errors
 async def update(_, message: Message):
     m = subprocess.check_output(["git", "pull"]).decode("UTF-8")
