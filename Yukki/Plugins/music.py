@@ -461,10 +461,10 @@ async def startyuplay(_,CallbackQuery):
         except NoActiveGroupCall:
             return await app.send_message(chat_id, "😕 Sorry, **no** active video chat!\n\n• to use me, **start one.**", reply_markup=close_keyboard)
         await add_active_chat(chat_id)
+        chat_id = message.chat.id
         buttons = play_markup(videoid, user_id)
         await mystic.delete()
         reply_markup=InlineKeyboardMarkup(buttons)
-        return
         CallbackQuery.send_message(f"🏷 <b>Name:</b> [{title[:75]}]({url}) \n⏱ <b>Duration:</b> `{duration}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {checking}")
        
         os.remove(thumb)
