@@ -248,7 +248,7 @@ async def skipvc(_,CallbackQuery):
                 user_id = CallbackQuery.from_user.id
                 user_name = CallbackQuery.from_user.first_name
                 rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
-                await CallbackQuery.message.reply_photo(
+                await CallbackQuery.send_message(
                 photo= thumb,
                 reply_markup=InlineKeyboardMarkup(buttons),    
                 caption=(f"⏭ <b>Skipped to the next music</b>\n\n🏷 <b>Name:</b> {title[:60]}\n⏱ <b>Duration:</b> `{duration} m`\n💡 **Status:** `Playing`\n🎧 **Request by:** {semx.mention}")
@@ -281,7 +281,7 @@ async def skipvc(_,CallbackQuery):
                 user_id = CallbackQuery.from_user.id
                 user_name = CallbackQuery.from_user.first_name
                 rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"    
-                await CallbackQuery.message.reply_photo(
+                await CallbackQuery.send_message(
                 photo=f"downloads/{_chat_}final.png",
                 reply_markup=InlineKeyboardMarkup(buttons),
                 caption=f"⏭ <b>Skipped to the next music</b>\n\n🏷 <b>Name:</b> {title[:60]}\n⏱ <b>Duration:</b> `{duration} m`\n💡 **Status:** `Playing`\n🎧 **Request by:** {username}",
@@ -432,7 +432,7 @@ Req By : {Name}
                     ctitle = await CHAT_TITLE(ctitle)
                     thumb = await gen_thumb(thumbnail, title, userid, theme, ctitle)  
                     buttons = play_markup(videoid, user_id)
-                    m = await CallbackQuery.message.reply_photo(
+                    m = await CallbackQuery.send_message(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),    
                     caption=(f"🏷 <b>Name:</b> [{title[:60]}]({url})\n⏱ <b>Duration:</b> {duration}\n💡 **Status:** `Playing`\n🎧 <b>Request by:</b> {checking}")
@@ -577,7 +577,7 @@ Req By : {Name}
                     ctitle = await CHAT_TITLE(ctitle)
                     thumb = await gen_thumb(thumbnail, title, userid, theme, ctitle)
                     buttons = play_markup(videoid, user_id)
-                    m = await CallbackQuery.message.reply_photo(
+                    m = await CallbackQuery.send_message(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),    
                     caption=(f"🏷 <b>Name:</b> [{title[:60]}]({url})\n⏱ <b>Duration:</b> `{duration}` m\n💡 **Status:** `Playing`\n🎧 <b>Request by:</b> {checking}")
