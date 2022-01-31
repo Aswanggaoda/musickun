@@ -274,6 +274,7 @@ async def play(_, message: Message):
     if await is_active_chat(chat_id):
         position = await put(chat_id, file=file)
         _chat_ = ((str(file)).replace("_","", 1).replace("/","", 1).replace(".","", 1))
+        checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
         cpl=(f"downloads/{_chat_}final.png")     
         shutil.copyfile(thumb, cpl) 
         f20 = open(f'search/{_chat_}title.txt', 'w')
@@ -295,9 +296,9 @@ async def play(_, message: Message):
             f28.write(f"{videoid}") 
             f28.close()
             buttons = audio_markup(videoid, user_id)
-        checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"           
-            await message.reply_text(f"💡 **Track added to queue »** {position}\n\n🏷 <b>Name:</b> [{title[:35]}...]({link}) \n⏱ <b>Duration:</b> `{duration}` \n🎧 <b>Request by:</b> {checking}"),
             reply_markup=InlineKeyboardMarkup(buttons),
+            await message.reply_text(f"💡 **Track added to queue »** {position}\n\n🏷 <b>Name:</b> [{title[:35]}...]({link}) \n⏱ <b>Duration:</b> `{duration}` \n🎧 <b>Request by:</b> {checking}")
+            
         
         return await mystic.delete()     
     else:
