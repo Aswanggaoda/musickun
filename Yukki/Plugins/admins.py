@@ -219,11 +219,9 @@ async def stop_cmd(_, message):
                 buttons = play_markup(videoid, user_id)
                 await mystic.delete()
                 semx = await app.get_users(userid)
-                await message.reply_photo(
-                photo= thumb,
                 reply_markup=InlineKeyboardMarkup(buttons),    
-                caption=(f"⏭ **Skipped to the next track**\n\n🗂 **Name:** {title[:80]}\n⏱ **Duration:** `{duration}`\n🧸 **Request by:** {semx.mention}")
-            )   
+                await message.reply_text(f"⏭ **Skipped to the next track**\n\n🗂 **Name:** {title[:80]}\n⏱ **Duration:** `{duration}`\n🧸 **Request by:** {semx.mention}")
+               
                 os.remove(thumb)
             else:      
                 await yukki.pytgcalls.change_stream(
@@ -248,10 +246,8 @@ async def stop_cmd(_, message):
                 if videoid == "smex1":
                     buttons = audio_markup(videoid, user_id)
                 else:
-                    buttons = play_markup(videoid, user_id)
-                await message.reply_photo(
-                photo=f"downloads/{_chat_}final.png",
+                    buttons = play_markup(videoid, user_id)            
                 reply_markup=InlineKeyboardMarkup(buttons),
-                caption=(f"⏭ **Skipped to the next track**\n\n🗂 **Name:** {title[:80]}\n⏱ **Duration:** `{duration}`\n🧸 **Request by:** {username}"),
-                )
+                await message.reply_text(f"⏭ **Skipped to the next track**\n\n🗂 **Name:** {title[:80]}\n⏱ **Duration:** `{duration}`\n🧸 **Request by:** {username}"),
+                
                 return
