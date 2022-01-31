@@ -463,8 +463,9 @@ async def startyuplay(_,CallbackQuery):
         await add_active_chat(chat_id)
         buttons = play_markup(videoid, user_id)
         await mystic.delete()
-        reply_markup=InlineKeyboardMarkup(buttons)    
-        await message.reply_text(f"🏷 <b>Name:</b> [{title[:75]}]({url}) \n⏱ <b>Duration:</b> `{duration}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {checking}")
+        reply_markup=InlineKeyboardMarkup(buttons)
+        return
+        CallbackQuery.send_message(f"🏷 <b>Name:</b> [{title[:75]}]({url}) \n⏱ <b>Duration:</b> `{duration}`\n💡 **Status:** `Playing`\n🎧 **Request by:** {checking}")
        
         os.remove(thumb)
         await CallbackQuery.message.delete()
